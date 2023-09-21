@@ -1,6 +1,9 @@
 pipeline
 {
-agent any
+agent 
+ {
+  node { label 'luckynode' } 
+ }
 stages
  {
  stage('validate')
