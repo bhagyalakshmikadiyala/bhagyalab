@@ -1,18 +1,23 @@
 pipeline
 {
- agent any
- stages
+agent any
+stages
  {
- stage('build')
+ stage('validate')
  {
  steps
- {
- timeout(time: 59, unit: 'SECONDS') //DAYS, HOURS, MICROSECONDS, MILLISECONDS, MINUTES, NANOSECONDS
- {
- echo "sleeping"
- sleep 60
+  {
+ sh "mvn validate"
+  }
  }
+  stage('Build')
+  {
+   steps
+   {
+   sh "mvn compile"
+    sh "mvn test"
+    sh "mvn package"
+   }
+  }
  }
- }
- }
- }
+}
