@@ -12,7 +12,7 @@ stages
  }
   stage('Build')
   {
-   agent { label 'luckynode' }
+
    steps
    {
    sh "mvn compile"
