@@ -1,9 +1,6 @@
 pipeline
 {
-agent 
- {
-  node { label 'luckynode' } 
- }
+agent any
 stages
  {
  stage('validate')
@@ -15,6 +12,7 @@ stages
  }
   stage('Build')
   {
+   agent { label 'luckynode' }
    steps
    {
    sh "mvn compile"
